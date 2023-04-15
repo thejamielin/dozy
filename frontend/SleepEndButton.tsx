@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { View, Button } from "react-native";
+import { Id } from "./convex/_generated/dataModel";
 import { useMutation } from "./convex/_generated/react";
 
 const SleepEndButton = () => {
-  const sendSleep = useMutation("sendSleep");
+  const modSleep = useMutation("modSleep");
   let dateTime = new Date()
 
   const [newEnd, setNewEnd] = useState({
-    id: "123",
-    endTime: dateTime,
+    id: new Id("sleeps", "ijfc-VyErtMx6XH6YT5MBg"),
+    endTime: dateTime.toString(),
   });
 
   async function handleSendMessage(event: any) {
     event.preventDefault();
-    await sendSleep(newEnd);
+    await modSleep(newEnd);
   }
 
   return <Button title="click me" onPress={handleSendMessage} />;

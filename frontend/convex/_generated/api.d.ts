@@ -10,7 +10,9 @@
  */
 
 import type { ApiFromModules } from "convex/api";
+import type * as modSleep from "../modSleep";
 import type * as sendPet from "../sendPet";
+import type * as sendSleep from "../sendSleep";
 
 /**
  * A type describing your app's public Convex API.
@@ -22,5 +24,7 @@ import type * as sendPet from "../sendPet";
  * `ConvexReactClient` to create app-specific types.
  */
 export type API = ApiFromModules<{
+  modSleep: typeof modSleep;
   sendPet: typeof sendPet;
+  sendSleep: typeof sendSleep;
 }>;

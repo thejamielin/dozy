@@ -7,7 +7,7 @@ import sendPet from "./convex/sendPet";
 import { useMutation } from "./convex/_generated/react";
 import SendButton from "./SendButton";
 import SleepStartButton from "./SleepStartButton";
-import SleepEndButton from "./SleepENdButton";
+import SleepEndButton from "./SleepEndButton";
 
 const url = "https://impolite-ram-180.convex.cloud"
 const convex= new ConvexReactClient(url, {unsavedChangesWarning: false});

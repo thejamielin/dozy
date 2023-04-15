@@ -5,6 +5,6 @@ type sleepStart = {
 }
 
 export default mutation(async ({ db } : any, {userId, startTime} : sleepStart) => {
-  const message = { userId, startTime};
-  await db.insert("messages", message);
+  const sleep = { userId, startTime};
+  await db.insert("sleeps", sleep);
 });

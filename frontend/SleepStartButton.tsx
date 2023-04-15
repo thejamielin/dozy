@@ -8,7 +8,7 @@ const SleepStartButton = () => {
 
   const [newStart, setNewStart] = useState({
     userId: "123",
-    startTime: dateTime,
+    startTime: dateTime.toString(),
   });
 
   async function handleSendMessage(event: any) {
