@@ -1,5 +1,5 @@
 import { Button } from 'react-native-paper';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import React from 'react';
 
@@ -29,7 +29,7 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
           navigation.navigate('Home')
         }>
         Submit
-      </Button>
+      </Button> 
       </View>
     );
   };
