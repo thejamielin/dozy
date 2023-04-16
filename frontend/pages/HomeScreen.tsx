@@ -16,8 +16,8 @@ const HomeScreen: React.FC = ({ navigation }: any) => {
       <Pet />
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <View>
-          <Badge style={{ alignSelf: "center" }}> Streak: {streak} </Badge>
-          <Badge style={{ alignSelf: "center" }}> Duration: {duration} </Badge>
+          <Badge style={{ alignSelf: "center" }} size={50}> Streak: {streak} </Badge>
+          <Badge style={{ alignSelf: "center" }} size={50}> Duration: {duration} </Badge>
         </View>
         <Button
           icon=""
