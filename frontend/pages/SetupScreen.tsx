@@ -1,5 +1,5 @@
 import { Button } from "react-native-paper";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView, View, StyleSheet } from "react-native";
 import { TextInput, Text, Modal } from "react-native-paper";
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
@@ -28,37 +28,47 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
   }
 
   return (
-    <SafeAreaView>
-      <Text>
+    <SafeAreaView style={{height:"100%"}}>
+      <Text style={{marginHorizontal:20, marginTop: 20, fontSize: 20, marginBottom: 20}}>
         Do you have find yourself having bad sleeping habits? Dozy is your
         sleeping friend who encourages healthier sleep habits by helping you
         visualize your sleep habits as you care for him!
       </Text>
 
       <TextInput
+      style={styles.input}
         label="Name"
         mode="outlined"
         value={name}
         onChangeText={value => setName(value)}
       />
       <TextInput
+      style={styles.input}
         label="Email"
         mode="outlined"
         value={email}
         onChangeText={value => setEmail(value)}
       />
       <Button
+        style={{
+          position: "absolute",
+          bottom: 100,
+          justifyContent: "center",
+          alignSelf: "center",
+          width: 200,
+        }}
         mode="contained"
         compact={false}
         onPress={signInFunction}
       >
-        Submit
+        <Text style={{fontSize: 18}}>Submit</Text>
       </Button>
       <Modal visible={modalVisible}>
-        <View>
+        <View style={{backgroundColor: "#FFFFFF", paddingVertical: 20}}>
           <TextInput
+          style={styles.input}
             mode="outlined"
-            label="How long would you like to sleep a night?"
+            label="How many hours would you like to sleep a night?"
             placeholder="Type something"
             keyboardType='numeric'
             right={<TextInput.Affix text="/100" />}
@@ -78,53 +88,12 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
   );
 };
 
-export default SetupScreen;
-
-
-
-/*
-import { Button } from "react-native-paper";
-import { View } from "react-native";
-import { TextInput, Text, Modal } from "react-native-paper";
-import React from "react";
-import SetupForm from "../components/SetupForm";
-import Pet from "../components/Pet";
-
-const SetupScreen: React.FC = ({ navigation }: any) => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [modalVisible, setModalVisible] = React.useState(false);
-
-  return (
-    <View>
-      <Text>
-        Do you have find yourself having bad sleeping habits? Dozy is your
-        sleeping friend who encourages healthier sleep habits by helping you
-        visualize your sleep habits as you care for him!
-      </Text>
-
-      <SetupForm /> 
-
-      <Modal visible={modalVisible}>
-        <View>
-          <TextInput
-            mode="outlined"
-            label="How long would you like to sleep a night?"
-            placeholder="Type something"
-            right={<TextInput.Affix text="/100" />}
-          />
-          <Button
-            mode="contained"
-            compact={false}
-            onPress={() => navigation.navigate("Home")}
-          >
-            Create
-          </Button>
-        </View>
-      </Modal>
-    </View>
-  );
-};
+const styles = StyleSheet.create({
+  input: {
+    marginHorizontal: 30,
+    marginVertical: 10,
+    backgroundColor: "#D8DBE2"
+  },
+});
 
 export default SetupScreen;
-*/
