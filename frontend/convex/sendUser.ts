@@ -1,5 +1,5 @@
 import { mutation } from "./_generated/server";
-type user = {
+export type user = {
     name: string,
     email: string,
     goalSleepTime: number,

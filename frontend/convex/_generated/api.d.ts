@@ -11,6 +11,7 @@
 
 import type { ApiFromModules } from "convex/api";
 import type * as getLatestStartTime from "../getLatestStartTime";
+import type * as getUser from "../getUser";
 import type * as modPetStatus from "../modPetStatus";
 import type * as modSleep from "../modSleep";
 import type * as sendPet from "../sendPet";
@@ -29,6 +30,7 @@ import type * as sendUser from "../sendUser";
  */
 export type API = ApiFromModules<{
   getLatestStartTime: typeof getLatestStartTime;
+  getUser: typeof getUser;
   modPetStatus: typeof modPetStatus;
   modSleep: typeof modSleep;
   sendPet: typeof sendPet;
