@@ -58,3 +58,18 @@ Dozy will take the world by storm and help people get their lives back on track.
 - Ability to see the pets of your friends
 - Add more pets to choose from the more you successfully maintain good sleeping habits
 - Integrate our app with a health device, like Fitbit or AppleWatch so that taking care of Dozy can be done automatically
+
+
+## How to Install and Run Dozy
+In your terminal, clone this repository.
+
+### Install Expo
+https://docs.expo.dev/get-started/installation/
+
+### If you are on Mac
+Download XCode
+
+### In VSCode
+Login via expo
+Run `npx expo start`
+Click `i` to start up the XCode simulator
