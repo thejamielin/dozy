@@ -18,12 +18,12 @@ export default function App() {
           <Stack.Screen
             name="Setup"
             component={SetupScreen}
-            options={{ title: "Welcome to Dozy!" }}
+            options={{ title: "Meet Dozy!" }}
           />
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ title: "Welcome to Dozy!" }}
+            options={{ title: "Home" }}
           />
           <Stack.Screen name="Info" component={InfoScreen} />
         </Stack.Navigator>
