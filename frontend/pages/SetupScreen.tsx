@@ -1,15 +1,24 @@
 import { Button, Caption } from "react-native-paper";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text, TouchableWithoutFeedback, Keyboard } from "react-native";
 import { TextInput, Modal } from "react-native-paper";
-import React from "react";
+import { useEffect, useState } from "react";
 
 const SetupScreen: React.FC = ({ navigation }: any) => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [modalVisible, setModalVisible] = React.useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const dimissKeyboardAndModal = () => {
+    Keyboard.dismiss;
+    hideModal;
+  }
+
+  const showModal = () => setModalVisible(true);
+  const hideModal = () => setModalVisible(false);
 
   return (
-    <View height={"100%"} style={{ alignContent: "center" }}>
+    <TouchableWithoutFeedback onPress={dimissKeyboardAndModal} accessible={false}>
+      <View height={"100%"} style={{ alignContent: "center" }}>
       <Caption>
         Do you have an egregious sleep schedule and/or not getting enough sleep?
         Dozy is your sleeping friend who encourages healthier sleep habits by
@@ -40,9 +49,9 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
         }}
         mode="contained"
         compact={false}
-        onPress={() => setModalVisible(!modalVisible)}
+        onPress={showModal}
       >
-        Submit
+        <Text style={{fontSize: 18}}>Submit</Text>
       </Button>
       <Modal visible={modalVisible}>
         <View style={{backgroundColor: "#FFFFFF", paddingVertical: 20}}>
@@ -64,6 +73,8 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
         </View>
       </Modal>
     </View>
+    </TouchableWithoutFeedback>
+    
   );
 };
 
