@@ -15,6 +15,7 @@ import type * as modSleep from "../modSleep";
 import type * as sendPet from "../sendPet";
 import type * as sendPetInfo from "../sendPetInfo";
 import type * as sendSleep from "../sendSleep";
+import type * as sendUser from "../sendUser";
 
 /**
  * A type describing your app's public Convex API.
@@ -31,4 +32,5 @@ export type API = ApiFromModules<{
   sendPet: typeof sendPet;
   sendPetInfo: typeof sendPetInfo;
   sendSleep: typeof sendSleep;
+  sendUser: typeof sendUser;
 }>;
