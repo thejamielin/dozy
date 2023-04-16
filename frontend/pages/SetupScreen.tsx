@@ -28,13 +28,15 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
         value={email}
         onChangeText={(email) => setEmail(email)}
       />
-      <Button
-        mode="contained"
-        compact={false}
-        onPress={() => setModalVisible(!modalVisible)}
-      >
-        Submit
-      </Button>
+      <View style={{flex:1, justifyContent:'flex-end', alignItems:'baseline'}}>
+        <Button
+          mode="contained"
+          compact={false}
+          onPress={() => setModalVisible(!modalVisible)}
+        >
+          Submit
+        </Button>
+      </View>
       <Modal visible={modalVisible}>
         <View>
           <TextInput
