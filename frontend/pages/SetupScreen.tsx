@@ -18,6 +18,7 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
     event.preventDefault();
     console.log("got here")
     const user = await sendUser({name: name, email: email, goalSleepTime: Number(goalSleepTime), streakLength: 0, lastGoodSleep: "2" });
+    return user;
   }
 
   const signUpFunction = () => {
@@ -26,6 +27,8 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
     console.log(goalSleepTime);
     if (!Number.isNaN(new Number(goalSleepTime))) {
       signUp(name, email, Number(goalSleepTime));
+      const user = handleSendMessage;
+      console.log(user.then((out : any)=> console.log(out)));
     }
   }
 
