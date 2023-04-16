@@ -10,7 +10,7 @@ import Router from "./navigation/Router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 const Stack = createNativeStackNavigator();
 
-const url = "https://diligent-rook-229.convex.cloud";
+const url = "https://impolite-ram-180.convex.cloud";
 const convex = new ConvexReactClient(url, { unsavedChangesWarning: false });
 
 export default function App() {

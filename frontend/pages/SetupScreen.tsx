@@ -14,23 +14,17 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
 
   const sendUser = useMutation("sendUser");
 
-  async function handleSendMessage() {
-    const user = await sendUser({name: name, email: email, goalSleepTime: Number(goalSleepTime), streakLength: 0, lastGoodSleep: "2" });
-    return user;
-  }
-
   const signUpFunction = async () => {
     if (!Number.isNaN(new Number(goalSleepTime))) {
       signUp(name, email, Number(goalSleepTime));
     }
   }
 
-  const signInFunction = () => {
-    try {
-      signIn(name, email)
-    } catch (error) {
-      setModalVisible(!modalVisible)
-    }
+  const signInFunction = async () => {
+      const user = await signIn(name, email);
+      if (user == null) {
+        setModalVisible(!modalVisible)
+      }
   }
 
   return (
@@ -56,7 +50,7 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
       <Button
         mode="contained"
         compact={false}
-        onPress={() => setModalVisible(!modalVisible)}
+        onPress={signInFunction}
       >
         Submit
       </Button>
