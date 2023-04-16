@@ -1,24 +1,35 @@
 import { Button } from 'react-native-paper';
 import { View } from 'react-native';
+import { TextInput } from 'react-native-paper';
 import React from 'react';
 
 const SetupScreen: React.FC = ({ navigation }: any) => {
+    const [name, setName] = React.useState("");
+    const [email, setEmail] = React.useState("");
+
     return (
       <View>
-        <Button
-          mode="contained"
-          children="WE ARE AT SETUP SCREEN"
-          onPress={() =>
-            navigation.navigate('Info')
-          }
-        />
-        <Button
-          mode="contained"
-          children="Tips and Tricks for Better Sleep"
-          onPress={() =>
-            navigation.navigate('Info')
-          }
-        />
+
+        <TextInput
+        label="Name"
+        mode="outlined"
+        value={name}
+        onChangeText={name => setName(name)}
+      />
+      <TextInput
+        label="Email"
+        mode="outlined"
+        value={email}
+        onChangeText={email => setEmail(email)}
+      />
+      <Button 
+        mode="contained" 
+        compact={false}
+        onPress={() =>
+          navigation.navigate('Home')
+        }>
+        Submit
+      </Button>
       </View>
     );
   };
