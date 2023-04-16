@@ -1,6 +1,6 @@
-import { Button } from "react-native-paper";
+import { Button, Caption } from "react-native-paper";
 import { View } from "react-native";
-import { TextInput, Text, Modal } from "react-native-paper";
+import { TextInput, Modal } from "react-native-paper";
 import React from "react";
 
 const SetupScreen: React.FC = ({ navigation }: any) => {
@@ -10,11 +10,11 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
 
   return (
     <View>
-      <Text>
-        Do you have find yourself having bad sleeping habits? Dozy is your
-        sleeping friend who encourages healthier sleep habits by helping you
-        visualize your sleep habits as you care for him!
-      </Text>
+      <Caption>
+        Do you have an egregious sleep schedule and/or not getting enough sleep?
+        Dozy is your sleeping friend who encourages healthier sleep habits by
+        helping you visualize your sleep habits as you care for him!
+      </Caption>
 
       <TextInput
         label="Name"
@@ -39,7 +39,7 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
         <View>
           <TextInput
             mode="outlined"
-            label="How long would you like to sleep a night?"
+            label="How many hours would you like to sleep a night?"
             placeholder="Type something"
             right={<TextInput.Affix text="/100" />}
           />
@@ -57,8 +57,6 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
 };
 
 export default SetupScreen;
-
-
 
 /*
 import { Button } from "react-native-paper";
