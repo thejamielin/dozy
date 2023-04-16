@@ -60,17 +60,18 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         streakLength: 0,
         lastGoodSleep: new Date().toISOString()
       }
-      const _authData = await sendUser(newUser);
-      const _authData2 = {
-        _id: "dd",
-        name: "dd",
-        email: "aa",
-        goalSleepTime: 3,
-        streakLength: 3,
-        lastGoodSleep: "33"
+      const userId: any = await sendUser(newUser);
+      const idString: string = userId.toString();
+      const _authData = {
+        _id: idString,
+        name: newUser.name,
+        email: newUser.email,
+        goalSleepTime: newUser.goalSleepTime,
+        streakLength: newUser.streakLength,
+        lastGoodSleep: newUser.lastGoodSleep
       }
-      setAuthData(_authData2);
-      setItemAsync("AuthData", JSON.stringify(_authData2));
+      setAuthData(_authData);
+      setItemAsync("AuthData", JSON.stringify(_authData));
     } catch (error) {
       console.log(error);
       throw new Error(error);

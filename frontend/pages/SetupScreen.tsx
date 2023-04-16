@@ -14,21 +14,14 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
 
   const sendUser = useMutation("sendUser");
 
-  async function handleSendMessage(event: any) {
-    event.preventDefault();
-    console.log("got here")
+  async function handleSendMessage() {
     const user = await sendUser({name: name, email: email, goalSleepTime: Number(goalSleepTime), streakLength: 0, lastGoodSleep: "2" });
     return user;
   }
 
-  const signUpFunction = () => {
-    console.log(name);
-    console.log(email);
-    console.log(goalSleepTime);
+  const signUpFunction = async () => {
     if (!Number.isNaN(new Number(goalSleepTime))) {
       signUp(name, email, Number(goalSleepTime));
-      const user = handleSendMessage;
-      console.log(user.then((out : any)=> console.log(out)));
     }
   }
 
