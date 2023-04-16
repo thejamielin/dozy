@@ -24,9 +24,9 @@ const AwakeSwitch = () => {
   }
 
   const handleStartOrEndSleep = () => {
-    let userId: string = "9pd8WzSFuyzorKZZoM1MBw"; // TODO this is hardcoded
+    let userId: string = "jJaN5qaFjxf0DNViGW9MBw"; // TODO this is hardcoded
     let now: Date = new Date();
-    if (isSwitchOn) {
+    if (!isSwitchOn) {
       startSleep();
     } else {
       endSleep();
