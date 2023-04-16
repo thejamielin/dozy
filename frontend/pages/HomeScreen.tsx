@@ -8,7 +8,7 @@ const HomeScreen: React.FC = ({ navigation }: any) => {
     const streak = 0; 
     const duration = 2; 
     return (
-      <View>
+      <View style={{alignContent:'center'}}>
         {/* <Button
           mode="contained"
           children="Awake"
@@ -22,8 +22,8 @@ const HomeScreen: React.FC = ({ navigation }: any) => {
           }
         />
         <Pet/>
-        <Badge > Streak: {streak} </Badge> 
-        <Badge > Duration: {duration} </Badge> 
+        <Badge style={{alignSelf:'center'}} > Streak: {streak} </Badge> 
+        <Badge style={{alignSelf:'center'}}> Duration: {duration} </Badge> 
       
       </View>
     );
