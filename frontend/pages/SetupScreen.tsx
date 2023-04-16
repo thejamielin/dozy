@@ -46,7 +46,10 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
           <Button
             mode="contained"
             compact={false}
-            onPress={() => navigation.navigate("Home")}
+            onPress={() => {
+              navigation.navigate("Home");
+              setModalVisible(!modalVisible);
+            }}
           >
             Create
           </Button>
@@ -57,8 +60,6 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
 };
 
 export default SetupScreen;
-
-
 
 /*
 import { Button } from "react-native-paper";

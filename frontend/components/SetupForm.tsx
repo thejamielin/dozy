@@ -1,18 +1,18 @@
 // CODE FROM: https://www.npmjs.com/package/react-native-paper-form-builder
 
-import React from 'react';
-import {View, StyleSheet, ScrollView, Text} from 'react-native';
-import {FormBuilder} from 'react-native-paper-form-builder';
-import {useForm} from 'react-hook-form';
-import {Button} from 'react-native-paper';
+import React from "react";
+import { View, StyleSheet, ScrollView, Text } from "react-native";
+import { FormBuilder } from "react-native-paper-form-builder";
+import { useForm } from "react-hook-form";
+import { Button } from "react-native-paper";
 
 function SetupForm() {
-  const {control, setFocus, handleSubmit} = useForm({
+  const { control, setFocus, handleSubmit } = useForm({
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
-    mode: 'onChange',
+    mode: "onChange",
   });
 
   return (
@@ -23,39 +23,40 @@ function SetupForm() {
           setFocus={setFocus}
           formConfigArray={[
             {
-              type: 'email',
-              name: 'email',
+              type: "email",
+              name: "email",
 
               rules: {
                 required: {
                   value: true,
-                  message: 'Email is required',
+                  message: "Email is required",
                 },
               },
               textInputProps: {
-                label: 'Email',
+                label: "Email",
               },
             },
             {
-              type: 'password',
-              name: 'password',
+              type: "password",
+              name: "password",
               rules: {
                 required: {
                   value: true,
-                  message: 'Password is required',
+                  message: "Password is required",
                 },
               },
               textInputProps: {
-                label: 'Password',
+                label: "Password",
               },
             },
           ]}
         />
         <Button
-          mode={'contained'}
+          mode={"contained"}
           onPress={handleSubmit((data: any) => {
-            console.log('form data', data);
-          })}>
+            console.log("form data", data);
+          })}
+        >
           Submit
         </Button>
       </ScrollView>
@@ -66,16 +67,16 @@ function SetupForm() {
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: "column",
   },
   scrollViewStyle: {
     flex: 1,
     padding: 15,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   headingStyle: {
     fontSize: 30,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 40,
   },
 });
