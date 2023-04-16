@@ -2,7 +2,6 @@ import { Button } from "react-native-paper";
 import { View } from "react-native";
 import { TextInput, Text, Modal } from "react-native-paper";
 import React from "react";
->>>>>>> abba2dd0528c0d357498036ae8c5857fd7814441
 
 const SetupScreen: React.FC = ({ navigation }: any) => {
   const [name, setName] = React.useState("");
