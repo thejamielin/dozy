@@ -6,5 +6,5 @@ type pet = {
 
 export default mutation(async ({ db } : any, {petname, imagename} : pet) => {
   const pet = { petname, imagename};
-  await db.insert("pets", pet);
+  await db.insert("Pets", pet);
 });

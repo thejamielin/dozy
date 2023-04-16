@@ -2,12 +2,12 @@ import { mutation } from "./_generated/server";
 type user = {
     name: string,
     email: string,
-    password: string,
-    goalSleepTime: string,
-    streakLength: string,
+    goalSleepTime: number,
+    streakLength: number,
+    lastGoodSleep: string
 }
 
-export default mutation(async ({ db } : any, {name, email, password, goalSleepTime, streakLength} : user) => {
-  const user = {name, email, password, goalSleepTime, streakLength};
-  await db.insert("users", user);
+export default mutation(async ({ db } : any, {name, email, goalSleepTime, streakLength, lastGoodSleep} : user) => {
+  const user = {name, email, goalSleepTime, streakLength, lastGoodSleep};
+  await db.insert("Users", user);
 });

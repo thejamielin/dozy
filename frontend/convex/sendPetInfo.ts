@@ -1,19 +1,20 @@
 import { mutation } from "./_generated/server";
 
-enum statusEnum {
-    healthy,
-    sick,
-    sleeping
+export enum statusEnum {
+    healthy = "healthy",
+    sick = "sick",
+    sleeping = "sleeping"
 }
 
 type petInfo = {
   userId : string,
   petId : string,
   status : statusEnum,
-  birth : string
+  birth : string,
+  choosen : boolean
 }
 
-export default mutation(async ({ db } : any, {userId, petId, status, birth} : petInfo) => {
-  const message = {userId, petId, status, birth};
-  await db.insert("messages", message);
+export default mutation(async ({ db } : any, {userId, petId, status, birth, choosen} : petInfo) => {
+  const message = {userId, petId, status, birth, choosen};
+  await db.insert("PetInfos", message);
 });
