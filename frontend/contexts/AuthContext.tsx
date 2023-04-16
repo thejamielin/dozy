@@ -2,7 +2,7 @@ import { deleteItemAsync, getItemAsync, setItemAsync } from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
 import getUser from "../convex/getUser";
 import { user } from "../convex/sendUser";
-import { useMutation } from "../convex/_generated/react";
+import { useMutation, useQuery } from "../convex/_generated/react";
 
 type AuthData = {
     _id : string,
@@ -31,10 +31,12 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [authData, setAuthData] = useState<AuthData>();
   const [loading, setLoading] = useState(true);
   const sendUser = useMutation("sendUser");
+  // const getUser = useQuery("getUser");
 
   useEffect(() => {
     loadStorageData();
   }, []);
+
 
   async function loadStorageData(): Promise<void> {
     try {
@@ -58,7 +60,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         streakLength: 0,
         lastGoodSleep: new Date().toISOString()
       }
-      console.log(newUser)
       const _authData = await sendUser(newUser);
       const _authData2 = {
         _id: "dd",
@@ -68,7 +69,6 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         streakLength: 3,
         lastGoodSleep: "33"
       }
-      console.log(authData)
       setAuthData(_authData2);
       setItemAsync("AuthData", JSON.stringify(_authData2));
     } catch (error) {
@@ -80,7 +80,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const signIn = async (name: string, email: string) => {
     try {
         const user = {name, email}
-      const _authData = await getUser(user);
+      const _authData = await getUser(name, email);
       if (_authData === undefined) {
         throw new Error("Cannot find user");
       }

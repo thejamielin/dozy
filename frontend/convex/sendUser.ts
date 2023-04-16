@@ -9,5 +9,5 @@ export type user = {
 
 export default mutation(async ({ db } : any, {name, email, goalSleepTime, streakLength, lastGoodSleep} : user) => {
   const user = {name, email, goalSleepTime, streakLength, lastGoodSleep};
-  await db.insert("Users", user);
+  const id = await db.insert("Users", user);
 });
