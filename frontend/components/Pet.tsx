@@ -1,7 +1,11 @@
-import { Image } from "react-native";
+import { Image, Text, View } from "react-native";
 
 const Pet: React.FC = () => {
-  return <Image source={require("../assets/icon.png")} />;
+  return (
+    <View>
+      <Image source={require("../assets/sleepybunny.gif")} style={{width:250, height:250, alignSelf:'center'}} />
+    </View>
+  ); 
 };
 
 export default Pet;
