@@ -18,7 +18,7 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
 
   return (
     <TouchableWithoutFeedback onPress={dimissKeyboardAndModal} accessible={false}>
-      <View height={"100%"} style={{ alignContent: "center" }}>
+      <View height={"100%"} style={{ alignContent: "center"}}>
       <Caption>
         Do you have an egregious sleep schedule and/or not getting enough sleep?
         Dozy is your sleeping friend who encourages healthier sleep habits by
@@ -81,7 +81,8 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   input: {
     marginHorizontal: 30,
-    marginVertical: 10
+    marginVertical: 10,
+    backgroundColor: "#D8DBE2"
   },
 });
 
