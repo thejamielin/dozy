@@ -1,3 +1,4 @@
+import { ConvexProvider, ConvexReactClient } from "convex/react";
 import { Button } from 'react-native-paper';
 import { Text, View } from 'react-native';
 import React from 'react';
@@ -32,10 +33,14 @@ const InfoScreen: React.FC = ({navigation, route}: any) => {
   </Text>;
 };
 
+const url = "https://diligent-rook-229.convex.cloud"
+const convex= new ConvexReactClient(url, {unsavedChangesWarning: false});
+
 export default function App() {
   
   return (
-    <NavigationContainer>
+    <ConvexProvider client={convex}>
+      <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
@@ -45,6 +50,7 @@ export default function App() {
         <Stack.Screen name="Info" component={InfoScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    </ConvexProvider>
   );
 }
 
