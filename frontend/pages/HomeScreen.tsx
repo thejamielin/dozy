@@ -1,5 +1,7 @@
 import { Button, Badge } from 'react-native-paper';
 import { View, Text } from 'react-native';
+import Pet from '../components/Pet'; 
+
 
 const HomeScreen: React.FC = ({ navigation }: any) => {
     const streak = 0; 
@@ -19,6 +21,7 @@ const HomeScreen: React.FC = ({ navigation }: any) => {
         />
         <Badge > Streak: {streak} </Badge> 
         <Badge > Duration: {duration} </Badge> 
+        <Pet/>
       </View>
     );
   };
