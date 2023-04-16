@@ -5,6 +5,6 @@ const InfoScreen: React.FC = () => {
 };
 
 const sleepTips: String =
-  "1. Stick to a sleep schedule. \n2. Exercise is great, but not too late in the";
+  "1. Stick to a sleep schedule. \n2. Exercise is great, but not too late in the night.";
 
 export default InfoScreen;
