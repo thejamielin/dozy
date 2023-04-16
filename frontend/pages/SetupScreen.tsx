@@ -1,43 +1,53 @@
-import { Button, Caption } from "react-native-paper";
-import { View, StyleSheet, Text, TouchableWithoutFeedback, Keyboard } from "react-native";
-import { TextInput, Modal } from "react-native-paper";
-import { useEffect, useState } from "react";
+import { Button } from "react-native-paper";
+import { SafeAreaView, View, StyleSheet } from "react-native";
+import { TextInput, Text, Modal } from "react-native-paper";
+import React, { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { useMutation } from "../convex/_generated/react";
 
 const SetupScreen: React.FC = ({ navigation }: any) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [goalSleepTime, setGoalSleepTime] = useState(""); 
   const [modalVisible, setModalVisible] = useState(false);
+  const {signUp, signIn} = useAuth();
 
-  const dimissKeyboardAndModal = () => {
-    Keyboard.dismiss;
-    hideModal;
+  const sendUser = useMutation("sendUser");
+
+  const signUpFunction = async () => {
+    if (!Number.isNaN(new Number(goalSleepTime))) {
+      signUp(name, email, Number(goalSleepTime));
+    }
   }
 
-  const showModal = () => setModalVisible(true);
-  const hideModal = () => setModalVisible(false);
+  const signInFunction = async () => {
+      const user = await signIn(name, email);
+      if (user == null) {
+        setModalVisible(!modalVisible)
+      }
+  }
 
   return (
-    <TouchableWithoutFeedback onPress={dimissKeyboardAndModal} accessible={false}>
-      <View height={"100%"} style={{ alignContent: "center"}}>
-      <Caption>
-        Do you have an egregious sleep schedule and/or not getting enough sleep?
-        Dozy is your sleeping friend who encourages healthier sleep habits by
-        helping you visualize your sleep habits as you care for him!
-      </Caption>
+    <SafeAreaView style={{height:"100%"}}>
+      <Text style={{marginHorizontal:20, marginTop: 20, fontSize: 20, marginBottom: 20}}>
+        Do you have find yourself having bad sleeping habits? Dozy is your
+        sleeping friend who encourages healthier sleep habits by helping you
+        visualize your sleep habits as you care for him!
+      </Text>
 
       <TextInput
       style={styles.input}
         label="Name"
         mode="outlined"
         value={name}
-        onChangeText={(name) => setName(name)}
+        onChangeText={value => setName(value)}
       />
       <TextInput
       style={styles.input}
         label="Email"
         mode="outlined"
         value={email}
-        onChangeText={(email) => setEmail(email)}
+        onChangeText={value => setEmail(value)}
       />
       <Button
         style={{
@@ -49,7 +59,7 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
         }}
         mode="contained"
         compact={false}
-        onPress={showModal}
+        onPress={signInFunction}
       >
         <Text style={{fontSize: 18}}>Submit</Text>
       </Button>
@@ -60,21 +70,21 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
             mode="outlined"
             label="How many hours would you like to sleep a night?"
             placeholder="Type something"
+            keyboardType='numeric'
             right={<TextInput.Affix text="/100" />}
+            onChangeText={value => setGoalSleepTime(value)}
+            value={goalSleepTime?.toString()}
           />
           <Button
             mode="contained"
             compact={false}
-            style={{marginHorizontal: 30}}
-            onPress={() => navigation.navigate("Home")}
+            onPress={signUpFunction}
           >
             Create
           </Button>
         </View>
       </Modal>
-    </View>
-    </TouchableWithoutFeedback>
-    
+    </SafeAreaView>
   );
 };
 

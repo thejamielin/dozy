@@ -1,7 +1,12 @@
 import { Caption } from "react-native-paper";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const InfoScreen = () => {
-  return <Caption>{sleepTips}</Caption>;
+const InfoScreen: React.FC = () => {
+  return (
+    <SafeAreaView>
+      <Caption>{sleepTips}</Caption>
+    </SafeAreaView>
+  );
 };
 
 const sleepTips: String =
