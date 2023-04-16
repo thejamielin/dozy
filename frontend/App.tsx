@@ -1,3 +1,4 @@
+import { ConvexProvider, ConvexReactClient } from "convex/react";
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -8,10 +9,14 @@ const Stack = createNativeStackNavigator();
 
 
 
+const url = "https://diligent-rook-229.convex.cloud"
+const convex= new ConvexReactClient(url, {unsavedChangesWarning: false});
+
 export default function App() {
   
   return (
-    <NavigationContainer>
+    <ConvexProvider client={convex}>
+      <NavigationContainer>
       <Stack.Navigator>
       <Stack.Screen
           name="Setup"
@@ -26,5 +31,6 @@ export default function App() {
         <Stack.Screen name="Info" component={InfoScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    </ConvexProvider>
   );
 }
