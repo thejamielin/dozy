@@ -2,9 +2,7 @@
 Mobile app that encourages users to have healthier sleep habits by taking care of a dozing animal friend.
 
 ## Team Info
-Team Name: Dozy
 Team Members: Akshay D, Maisha M, Monroe C, Jamie L
-Project Title: Dozy
 
 ## Inspiration
 After enduring three years of college, team Dozy is no stranger to sleep deprivation and egregious sleeping habits. We understand how hard it is to get your sleep schedule (and life) back on track all by yourself, so we decided to create an app that encouraged better sleeping habits. 
