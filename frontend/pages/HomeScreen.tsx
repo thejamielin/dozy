@@ -7,9 +7,6 @@ const HomeScreen: React.FC = ({ navigation }: any) => {
         <Button
           mode="contained"
           children="Awake"
-          onPress={() =>
-            navigation.navigate('Info')
-          }
         />
         <Button
           mode="contained"
