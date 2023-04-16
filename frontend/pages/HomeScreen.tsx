@@ -4,6 +4,7 @@ import Pet from "../components/Pet";
 import AwakeSwitch from "../components/AwakeSwitch";
 import React, { useRef, useState, useEffect } from "react";
 import { AppState } from "react-native";
+import { useMutation, useQuery } from "../convex/_generated/react";
 
 const HomeScreen: React.FC = ({ navigation }: any) => {
   const appState = useRef(AppState.currentState);
@@ -40,21 +41,31 @@ const HomeScreen: React.FC = ({ navigation }: any) => {
     );
   };
 
+  const forceEndSleep = useMutation("modSleep");
+  async function handleForceEndSleep(event : any) {
+    event.preventDefault();
+    await forceEndSleep({ userId: userId, endTime: new Date().toISOString()});
+  }
+
   useEffect(() => {
     const subscription = AppState.addEventListener("change", (nextAppState) => {
+      console.log("here")
       if (
-        appState.current.match(/inactive|background/) &&
-        nextAppState === "active"
+        appState.current.match(/inactive|background/) && nextAppState === "active"
       ) {
         console.log("App has come to the foreground!");
       }
-      if (appState.current.match("active") && nextAppState === "inactive") {
+      if (appState.current.match("active") && nextAppState === "inactive"
+      ) {
         console.log("We are leaving the app");
-        setIsModalVisible(true);
+        // setIsModalVisible(true);
+        handleForceEndSleep;
       }
-      if (appState.current.match("inactive") && nextAppState === "inactive") {
+      if (appState.current.match("inactive") && nextAppState === "inactive"
+      ) {
         console.log("We are leaving the app");
-        setIsModalVisible(true);
+        // setIsModalVisible(true);
+        handleForceEndSleep;
       }
       appState.current = nextAppState;
       setAppStateVisible(appState.current);
