@@ -8,9 +8,9 @@ import { useMutation } from "../convex/_generated/react";
 const SetupScreen: React.FC = ({ navigation }: any) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [goalSleepTime, setGoalSleepTime] = useState(""); 
+  const [goalSleepTime, setGoalSleepTime] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
-  const {signUp, signIn} = useAuth();
+  const { signUp, signIn } = useAuth();
 
   const sendUser = useMutation("sendUser");
 
@@ -18,36 +18,43 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
     if (!Number.isNaN(new Number(goalSleepTime))) {
       signUp(name, email, Number(goalSleepTime));
     }
-  }
+  };
 
   const signInFunction = async () => {
-      const user = await signIn(name, email);
-      if (user == null) {
-        setModalVisible(!modalVisible)
-      }
-  }
+    const user = await signIn(name, email);
+    if (user == null) {
+      setModalVisible(!modalVisible);
+    }
+  };
 
   return (
-    <SafeAreaView style={{height:"100%"}}>
-      <Text style={{marginHorizontal:20, marginTop: 20, fontSize: 20, marginBottom: 20}}>
+    <SafeAreaView style={{ height: "100%" }}>
+      <Text
+        style={{
+          marginHorizontal: 20,
+          marginTop: 20,
+          fontSize: 20,
+          marginBottom: 20,
+        }}
+      >
         Do you have find yourself having bad sleeping habits? Dozy is your
         sleeping friend who encourages healthier sleep habits by helping you
         visualize your sleep habits as you care for him!
       </Text>
 
       <TextInput
-      style={styles.input}
+        style={styles.input}
         label="Name"
         mode="outlined"
         value={name}
-        onChangeText={value => setName(value)}
+        onChangeText={(value) => setName(value)}
       />
       <TextInput
-      style={styles.input}
+        style={styles.input}
         label="Email"
         mode="outlined"
         value={email}
-        onChangeText={value => setEmail(value)}
+        onChangeText={(value) => setEmail(value)}
       />
       <Button
         style={{
@@ -61,25 +68,21 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
         compact={false}
         onPress={signInFunction}
       >
-        <Text style={{fontSize: 18}}>Submit</Text>
+        <Text style={{ fontSize: 18 }}>Submit</Text>
       </Button>
       <Modal visible={modalVisible}>
-        <View style={{backgroundColor: "#FFFFFF", paddingVertical: 20}}>
+        <View style={{ backgroundColor: "#FFFFFF", paddingVertical: 20 }}>
           <TextInput
-          style={styles.input}
+            style={styles.input}
             mode="outlined"
             label="How many hours would you like to sleep a night?"
             placeholder="Type something"
-            keyboardType='numeric'
+            keyboardType="numeric"
             right={<TextInput.Affix text="/100" />}
-            onChangeText={value => setGoalSleepTime(value)}
+            onChangeText={(value) => setGoalSleepTime(value)}
             value={goalSleepTime?.toString()}
           />
-          <Button
-            mode="contained"
-            compact={false}
-            onPress={signUpFunction}
-          >
+          <Button mode="contained" compact={false} onPress={signUpFunction}>
             Create
           </Button>
         </View>
@@ -92,7 +95,7 @@ const styles = StyleSheet.create({
   input: {
     marginHorizontal: 30,
     marginVertical: 10,
-    backgroundColor: "#D8DBE2"
+    backgroundColor: "#D8DBE2",
   },
 });
 
