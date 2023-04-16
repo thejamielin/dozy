@@ -9,7 +9,7 @@ import SendButton from "./SendButton";
 import SleepStartButton from "./SleepStartButton";
 import SleepEndButton from "./SleepEndButton";
 
-const url = "https://impolite-ram-180.convex.cloud"
+const url = "https://diligent-rook-229.convex.cloud"
 const convex= new ConvexReactClient(url, {unsavedChangesWarning: false});
 
 export default function App() {

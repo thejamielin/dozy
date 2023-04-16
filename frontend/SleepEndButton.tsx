@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { View, Button } from "react-native";
 import { Id } from "./convex/_generated/dataModel";
-import { useMutation } from "./convex/_generated/react";
+import { useMutation, useQuery } from "./convex/_generated/react";
+import { query } from "./convex/_generated/server";
 
 const SleepEndButton = () => {
   const modSleep = useMutation("modSleep");
-  let dateTime = new Date()
+  let dateTime = new Date();
 
+  // const latest = useQuery("getLatestStartTime");
+  
   const [newEnd, setNewEnd] = useState({
-    id: new Id("sleeps", "ijfc-VyErtMx6XH6YT5MBg"),
+    id: new Id("sleeps", "123456789"),
     endTime: dateTime.toString(),
   });
 
