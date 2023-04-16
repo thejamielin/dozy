@@ -66,6 +66,7 @@ function SetupForm() {
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
+    flexDirection: 'column'
   },
   scrollViewStyle: {
     flex: 1,

@@ -19,9 +19,10 @@ const HomeScreen: React.FC = ({ navigation }: any) => {
             navigation.navigate('Info')
           }
         />
+        <Pet/>
         <Badge > Streak: {streak} </Badge> 
         <Badge > Duration: {duration} </Badge> 
-        <Pet/>
+      
       </View>
     );
   };

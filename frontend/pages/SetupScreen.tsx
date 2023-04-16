@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { TextInput, Text, Modal } from "react-native-paper";
 import React from "react";
 import SetupForm from "../components/SetupForm";
+import Pet from "../components/Pet";
 
 const SetupScreen: React.FC = ({ navigation }: any) => {
   const [name, setName] = React.useState("");
