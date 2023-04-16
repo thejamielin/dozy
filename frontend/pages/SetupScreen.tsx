@@ -2,6 +2,7 @@ import { Button } from "react-native-paper";
 import { View } from "react-native";
 import { TextInput, Text, Modal } from "react-native-paper";
 import React from "react";
+import SetupForm from "../components/SetupForm";
 
 const SetupScreen: React.FC = ({ navigation }: any) => {
   const [name, setName] = React.useState("");
@@ -16,25 +17,8 @@ const SetupScreen: React.FC = ({ navigation }: any) => {
         visualize your sleep habits as you care for him!
       </Text>
 
-      <TextInput
-        label="Name"
-        mode="outlined"
-        value={name}
-        onChangeText={(name) => setName(name)}
-      />
-      <TextInput
-        label="Email"
-        mode="outlined"
-        value={email}
-        onChangeText={(email) => setEmail(email)}
-      />
-      <Button
-        mode="contained"
-        compact={false}
-        onPress={() => setModalVisible(!modalVisible)}
-      >
-        Submit
-      </Button>
+      <SetupForm /> 
+
       <Modal visible={modalVisible}>
         <View>
           <TextInput
